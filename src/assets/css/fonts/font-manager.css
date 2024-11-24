@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "PPMonumentExtended";
+  src: url("fonts/monument-extended/PPMonumentExtended-Black-BF645465a1e687b.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PPMonumentExtended";
+  src: url("fonts/monument-extended/PPMonumentExtended-BlackItalic-BF645465a213d75.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "PPMonumentExtended";
+  src: url("fonts/monument-extended/PPMonumentExtended-Light-BF645465a264007.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PPMonumentExtended";
+  src: url("fonts/monument-extended/PPMonumentExtended-LightItalic-BF645465a25b74d.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "PPMonumentExtended";
+  src: url("fonts/monument-extended/PPMonumentExtended-Regular-BF645465a253250.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "PPMonumentExtended";
+  src: url("fonts/monument-extended/PPMonumentExtended-RegularItalic-BF645465a2449f3.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}

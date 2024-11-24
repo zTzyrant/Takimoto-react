@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Promo Tourism System",
+    "content": "Promo Tourism System is a web platform designed to help you find the best deals for your next trip. Built as part of my university assignment, it showcases my skills in creating practical and user-friendly solutions for travel enthusiasts. The platform is developed using Angular 17 for the frontend, ExpressJS for the backend, and MongoDB for the database.",
+    "link": "https://github.com/zTzyrant/PTSCore",
+    "featuredImg": "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/PTS/Home%20Promo%20Tourism%20System.png",
+    "img": [
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/PTS/Home%20Promo%20Tourism%20System.png",
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/PTS/View%20Products%20Promo%20Tourism%20System.png",
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/PTS/Register%20Merchant%20Promo%20Tourism%20System.png",
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/PTS/Merchant%20Dashboard%20Promo%20Tourism%20System.png"
+    ]
+  },
+  {
+    "title": "KLS Bali Estate",
+    "content": "KLS Estate Bali is dedicated to crafting high-end, bespoke villas with timeless design and quality craftsmanship. Founded by a team of experienced architects, KLS offers luxury villas for sale, blending exceptional design with prime locations. As part of my freelance project, I developed 6 websites for KLS, including Landing KLS, Architecture KLS, Property KLS, Management KLS, Our Lands KLS, and KLS Cleaning, all built using React 18.",
+    "link": "https://klsbaliestate.com/",
+    "featuredImg": "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/KLS/Architecture%20Design%20Buy%20%26%20rent%20a%20Bali%20Property-min.png",
+    "img": [
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/KLS/Architecture%20Design%20Buy%20%26%20rent%20a%20Bali%20Property-min.png",
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/KLS/Design%20Buy%20%26%20rent%20a%20Bali%20Property-min.png",
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/KLS/Home%20KLS%20Cleaning-min.png",
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/KLS/Landing%20KLS%20Properties-min.png"
+    ]
+  },
+  {
+    "title": "Online Printing System",
+    "content": "This website, OPS-Core, is my final project assignment. It’s an e-commerce platform built with Angular and hosted on Firebase. The backend is powered by ExpressJS, deployed on AWS EC2, and connected to a MySQL database. It supports local payments, leveraging Midtrans for mock transactions and payment simulations as a prototype.",
+    "link": "https://github.com/zTzyrant/ops-core",
+    "featuredImg": "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/OPS/Inforgraphic%20Poster-min.png",
+    "img": [
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/OPS/Inforgraphic%20Poster-min.png"
+    ]
+  }
+]
