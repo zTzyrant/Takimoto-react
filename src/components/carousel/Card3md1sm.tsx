@@ -1,6 +1,5 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export type slideType = {
@@ -18,6 +17,7 @@ export const Card3md1sm = ({ data }: { data: slideType[] }) => {
       perView: 3,
       spacing: 10,
     },
+    loop: true,
     breakpoints: {
       "(max-width: 1024px)": {
         slides: {

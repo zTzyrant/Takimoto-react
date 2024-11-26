@@ -1,5 +1,7 @@
 import { useNavigate, Link } from "react-router-dom";
 import logo from "images/TakiDevLogo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function Navbar({
   menuOpened,
@@ -25,7 +27,7 @@ export default function Navbar({
       <Link to="/" className="aspect-square h-16 w-16 overflow-hidden rounded-sm">
         <img src={logo} alt="TakiDev Logo" className="object-cover" />
       </Link>
-      <ul className="flex transform justify-center overflow-hidden rounded-full border-2 border-black transition-all duration-300 ease-in-out">
+      <ul className="flex transform justify-center overflow-hidden rounded-full border-2 border-black transition-all duration-300 ease-in-out max-md:hidden">
         {Object.entries(menu).map(([key, value]) => (
           <li
             key={key}
@@ -47,9 +49,10 @@ export default function Navbar({
             href="https://www.linkedin.com/in/ztzyrant/"
             target="_blank"
             rel="noreferrer"
-            className="border-2 border-black p-4 px-5 font-monument text-lg text-black transition-all duration-300 ease-in-out hover:bg-black hover:text-taki-secondary"
+            className="border-2 border-black p-2 px-3 font-monument text-lg text-black transition-all duration-300 ease-in-out hover:bg-black hover:text-taki-secondary md:p-4 md:px-5"
           >
-            LinkedIn
+            <span className="hidden md:inline-flex">LinkedIn</span>
+            <FontAwesomeIcon icon={faLinkedin} className="text-xl md:hidden" />
           </a>
         </button>
         <button

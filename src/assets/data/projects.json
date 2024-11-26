@@ -31,5 +31,23 @@
     "img": [
       "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/OPS/Inforgraphic%20Poster-min.png"
     ]
+  },
+  {
+    "title": "Angular Anisite",
+    "content": "This website, initially built with Angular 13 and upgraded to Angular 14, was created for my personal development and final college project. It is hosted on Firebase and utilizes Firebase's real-time database.",
+    "link": "https://angular-anisite.web.app/",
+    "featuredImg": "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/AST/Artboard-1.jpg",
+    "img": [
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/AST/Artboard-1.jpg"
+    ]
+  },
+  {
+    "title": "zTyrant Corporation",
+    "content": "This is my first website I'm deploying to the public. This website is run using HTML, CSS, and JavaScript.",
+    "link": "https://ztzyrant.github.io/",
+    "featuredImg": "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/ZTZ/Artboard-3.jpg",
+    "img": [
+      "https://raw.githubusercontent.com/zTzyrant/zTzyrant/refs/heads/main/images/Projects/ZTZ/Artboard-3.jpg"
+    ]
   }
 ]

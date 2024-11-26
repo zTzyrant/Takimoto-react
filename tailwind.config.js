@@ -22,6 +22,7 @@ module.exports = {
     extend: {
       fontFamily: {
         monument: ["PPMonumentExtended", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
       colors: {
         "taki-primary": "#284a75",
