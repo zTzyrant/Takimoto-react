@@ -30,11 +30,11 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Avatar({ animateProps }: { animateProps: string }) {
+export function Avatar({ animateProps, section }: { animateProps: string; section: number }) {
   const Animation = animateProps;
   const { headFollow, cursorFollow, wireframe } = useControls({
     headFollow: false,
-    cursorFollow: false,
+    cursorFollow: true,
     wireframe: false,
   });
   const group = useRef<THREE.Group | null>(null);
@@ -56,6 +56,13 @@ export function Avatar({ animateProps }: { animateProps: string }) {
     group,
   );
 
+  useFrame((state) => {
+    if (cursorFollow && section === 1) {
+      // const target = new THREE.Vector3(state.mouse.x, state.mouse.y, 1);
+      group.current?.position.setX(-(state.mouse.x / 8));
+      group.current?.position.setY(-(state.mouse.y / 8));
+    }
+  });
   useEffect(() => {
     if (actions[Animation]) {
       actions[Animation]?.reset().fadeIn(0.5).play();

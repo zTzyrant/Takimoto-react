@@ -32,32 +32,15 @@ export const Home = () => {
     }
   }, [location]);
 
-  const [posAvatar, setPosAvatar] = useState({ x: 0, y: 0 });
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const { clientX, clientY } = e;
-    const xMovement = -(clientX / window.innerWidth - 0.5) * 0.25; // Horizontal movement
-    const yMovement = (clientY / window.innerHeight - 0.5) * 0.25; // Vertical movement
-    setPosAvatar({ x: xMovement, y: yMovement });
-  };
-
-  const handleMouseLeave = () => {
-    setPosAvatar({ x: 0, y: 0 });
-  };
-
   return (
     <>
       <Navbar menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
       <MenuComponent menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
-      <Canvas
-        shadows
-        camera={{ position: [0, 3, 10], fov: 42 }}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      >
+      <Canvas shadows camera={{ position: [0, 3, 10], fov: 42 }}>
         <ScrollControls pages={4} damping={0.1}>
           <ScrollManager section={section} onSectionChange={setSection} />
           <Scroll>
-            <Room3D menuOpened={menuOpened} posAvatar={posAvatar} />
+            <Room3D menuOpened={menuOpened} />
           </Scroll>
           <Scroll
             html

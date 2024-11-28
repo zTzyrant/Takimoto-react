@@ -21,13 +21,7 @@ interface ExtendedScrollControlsState extends ScrollControlsState {
     current: number;
   };
 }
-export const Room3D = ({
-  menuOpened,
-  posAvatar,
-}: {
-  menuOpened: boolean;
-  posAvatar: { x: number; y: number };
-}) => {
+export const Room3D = ({ menuOpened }: { menuOpened: boolean }) => {
   const data = useScroll() as ExtendedScrollControlsState;
   const { viewport } = useThree();
 
@@ -78,6 +72,7 @@ export const Room3D = ({
     window.addEventListener("resize", () => {
       setWindowWidth(window.innerWidth);
     });
+
     return () =>
       window.removeEventListener("resize", () => {
         setWindowWidth(window.innerWidth);
@@ -91,12 +86,7 @@ export const Room3D = ({
         rotation={[-3.141592653589793, 1.2053981633974482, 3.141592653589793]}
         animate={"" + section}
         transition={{
-          duration:
-            section !== 1 || characterAnimation === "Falling"
-              ? 0.6
-              : posAvatar.x && posAvatar.y
-                ? 0.1
-                : 0.6,
+          duration: section !== 1 || characterAnimation === "Falling" ? 0.6 : 0.6,
         }}
         variants={{
           0: {
@@ -110,8 +100,10 @@ export const Room3D = ({
           },
           1: {
             // About
-            y: windowWidth > 1280 ? -viewport.height + 0.5 + posAvatar.y : -viewport.height + 0.5,
-            x: windowWidth > 1280 ? 1.75 + posAvatar.x : 0.55,
+            // y: windowWidth > 1280 ? -viewport.height + 0.5 + posAvatar.y : -viewport.height + 0.5,
+            // x: windowWidth > 1280 ? 1.75 + posAvatar.x : 0.55,
+            y: windowWidth > 1280 ? -viewport.height + 0.5 : -viewport.height + 0.5,
+            x: windowWidth > 1280 ? 1.75 : 0.55,
             z: 6,
             rotateX: 0,
             rotateY: -0.5,
@@ -119,8 +111,13 @@ export const Room3D = ({
           },
           2: {
             // Projects
-            x: 0,
-            y: -viewport.height * 2 + 0.5,
+            x: 0.8,
+            y:
+              windowWidth > 1280
+                ? -viewport.height * 2 + 0.5
+                : windowWidth > 380
+                  ? -viewport.height * 2 - 1.5
+                  : -viewport.height * 2.5 - 0.5,
             z: 0,
             rotateX: -2,
             rotateY: -Math.PI / 8,
@@ -140,7 +137,7 @@ export const Room3D = ({
           },
         }}
       >
-        <Avatar animateProps={characterAnimation} />
+        <Avatar animateProps={characterAnimation} section={section} />
       </motion.group>
       <ambientLight intensity={1} />
 

@@ -41,7 +41,7 @@ const Section: React.FC<sectionProps> = ({ className, children, id }) => {
   return (
     <motion.section
       id={id}
-      className={`relative z-[2] mx-auto !w-full overflow-hidden px-4 pt-[112px] sm:px-12 lg:px-16 ${className ? className : ""}`}
+      className={`relative z-[2] mx-auto !min-h-screen !w-full overflow-hidden px-4 pt-[112px] sm:px-12 lg:px-16 ${className ? className : ""}`}
       style={{
         minHeight: `${innerHeight ? innerHeight : window.innerHeight}px`,
       }}
