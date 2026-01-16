@@ -43,5 +43,6 @@ steps:
       password:
         from_secret: ssh_pass
       script:
+        - export PATH=$PATH:/home/zein/.bun/bin:/usr/local/bin:/usr/bin:/bin
         - cd /home/zein/projects/taki-react
-        - /home/zein/.bun/bin/pm2 restart taki-react || /home/zein/.bun/bin/pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
+        - /home/zein/.bun/bin/pm2 restart taki-react || /home/zein/.bun/bin/pm2 start "bun x serve dist -p 3010" --name "taki-react"
