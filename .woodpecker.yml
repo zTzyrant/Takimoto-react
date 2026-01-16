@@ -1,25 +1,17 @@
-pipeline:
-  clone:
-    image: woodpeckerci/plugin-git
+clone:
+  image: woodpeckerci/plugin-git
 
-  steps:
-    # Step 1: Build
-    name: build react app
-    image: node:20-alpine
-    commands:
-      # Kita install Bun dulu di dalam container Node, lalu pakai Bun
-      - curl -fsSL https://bun.sh/install | bash
-      - source /root/.bashrc
-      - bun install
-      - bun run build
+steps:
+  name: build react app
+  image: node:20-alpine
+  commands:
+    - npm install
+    - npm run build
 
-    # Step 2: Deploy
-    name: deploy to server
-    image: alpine:3.19
-    commands:
-      # Setup folder
-      - rm -rf /home/zein/projects/taki-react/*
-      - cp -r /woodpecker/src/github.com/username/react-repo/build/* /home/zein/projects/taki-react/
-      # Restart service
-      - pm2 delete taki-react 2>/dev/null || true
-      - pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
+  name: deploy to server
+  image: alpine:3.19
+  commands:
+    - rm -rf /home/zein/projects/taki-react/*
+    - cp -r /woodpecker/src/github.com/username/react-repo/build/* /home/zein/projects/taki-react/
+    - pm2 delete taki-react 2>/dev/null || true
+    - pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
