@@ -1,20 +1,16 @@
 steps:
-  - name: clone
-    image: woodpeckerci/plugin-git
-    settings:
-      depth: 1
-
   - name: build-react-app
-    image: node:20-alpine
+    # Gunakan image resmi Bun (oven/bun)
+    image: oven/bun:1-alpine
     commands:
-      - npm install
-      - npm run build
+      - bun install
+      - bun run build
 
   - name: deploy-to-server
     image: alpine:3.19
     commands:
-      # Pastikan folder ini sudah di-mount melalui volume di woodpercker-agent
       - rm -rf /home/zein/projects/taki-react/*
+      # Sesuai pesan error sebelumnya, pastikan folder outputnya benar (dist atau build)
       - cp -r dist/* /home/zein/projects/taki-react/
-      # Perhatian: PM2 tidak akan terbaca di image alpine kecuali diinstall/di-link
+      # Menjalankan PM2 dengan runtime Bun
       - pm2 restart taki-react || pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
