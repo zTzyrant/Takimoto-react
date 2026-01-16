@@ -1,23 +1,20 @@
-pipeline:
-  clone:
+steps:
+  - name: clone
     image: woodpeckerci/plugin-git
     settings:
       depth: 1
 
-  steps:
-    - name: build react app
-      image: node:20-alpine
-      commands:
-        - npm install
-        - npm run build
+  - name: build-react-app
+    image: node:20-alpine
+    commands:
+      - npm install
+      - npm run build
 
-    - name: deploy to server
-      image: alpine:3.19
-      volumes:
-        - /home/zein/projects/taki-react:/destination # Jika ingin akses folder host
-      commands:
-        - rm -rf /home/zein/projects/taki-react/*
-        - cp -r dist/* /home/zein/projects/taki-react/
-        # Catatan: Perintah PM2 biasanya tidak bisa jalan di dalam container alpine standar 
-        # kecuali host socket atau SSH dihubungkan.
-        - pm2 restart taki-react || pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
+  - name: deploy-to-server
+    image: alpine:3.19
+    commands:
+      # Pastikan folder ini sudah di-mount melalui volume di woodpercker-agent
+      - rm -rf /home/zein/projects/taki-react/*
+      - cp -r dist/* /home/zein/projects/taki-react/
+      # Perhatian: PM2 tidak akan terbaca di image alpine kecuali diinstall/di-link
+      - pm2 restart taki-react || pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
