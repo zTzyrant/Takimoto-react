@@ -45,4 +45,5 @@ steps:
       script:
         - export PATH=/home/zein/.nvm/versions/node/v24.13.0/bin:/home/zein/.bun/bin:$PATH
         - cd /home/zein/projects/taki-react
-        - pm2 restart taki-react || pm2 start "bun x serve dist -p 3010" --name "taki-react"
+        - pm2 delete taki-react || true
+        - pm2 start "bun x serve . -p 3010" --name "taki-react"
