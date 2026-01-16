@@ -44,4 +44,4 @@ steps:
         from_secret: ssh_pass
       script:
         - cd /home/zein/projects/taki-react
-        - pm2 restart taki-react || pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
+        - /home/zein/.bun/bin/pm2 restart taki-react || /home/zein/.bun/bin/pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
