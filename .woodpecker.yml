@@ -1,23 +1,29 @@
 steps:
   - name: build-react-app
-    # Menggunakan Node 24 sebagai base image
     image: node:24-alpine
     commands:
-      # 1. Install Bun di dalam container Node menggunakan npm
       - npm install -g bun
-      
-      # 2. Install dependencies menggunakan Bun (Cepat!)
       - bun install --legacy-peer-deps
-      
-      # 3. Jalankan build menggunakan Bun
-      # Kita pakai 'bun run build' yang biasanya berisi 'vite build'
       - bun run build
+
+  - name: prepare-server
+    image: appleboy/drone-ssh
+    settings:
+      host:
+        from_secret: ssh_host
+      username:
+        from_secret: ssh_user
+      password:
+        from_secret: ssh_pass
+      script:
+        - rm -rf /home/zein/projects/taki-react
+        - mkdir -p /home/zein/projects/taki-react
 
   - name: deploy-to-server
     image: appleboy/drone-scp
     settings:
       host:
-        from_secret: ssh_host # Gunakan 172.17.0.1 jika satu mesin dengan runner
+        from_secret: ssh_host
       username:
         from_secret: ssh_user
       password:
@@ -38,5 +44,4 @@ steps:
         from_secret: ssh_pass
       script:
         - cd /home/zein/projects/taki-react
-        # Menjalankan aplikasi dengan runtime Bun di server host
         - pm2 restart taki-react || pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
