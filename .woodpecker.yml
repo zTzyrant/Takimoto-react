@@ -1,0 +1,25 @@
+pipeline:
+  clone:
+    image: woodpeckerci/plugin-git
+
+  # TAHAP 1: Install Dependensi & Build pakai Bun
+  build:
+    image: oven/bun:latest
+    commands:
+      # Install modul
+      - bun install
+      # Build React
+      - bun run build
+
+  # TAHAP 2: Deploy pakai Bun juga
+  deploy:
+    image: oven/bun:latest
+    commands:
+      # 1. Bersihkan folder lama
+      - rm -rf /home/zein/projects/taki-react/*
+      # 2. Copy folder build ke folder project
+      - cp -r /woodpecker/src/github.com/username/react-repo/build/* /home/zein/projects/taki-react/
+      # 3. Matikan proses lama (kalau ada)
+      - pm2 delete taki-react 2>/dev/null || true
+      # 4. Jalankan web pakai Bun di port 3010
+      - pm2 start "bun run --bun index.html -p 3010" --name "taki-react"
